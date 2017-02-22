@@ -1,4 +1,3 @@
-var crawl = require('./lib/crawl');
 var route = require('./lib/route');
 
 var express = require('express');
@@ -20,7 +19,7 @@ route(app);
 
 app.listen(3000);
 
-crawl('http://www.divedice.com/web_dev/bbs/bbs_list_type01.php?type=f&c_type=1&pagenum=1&cateid=A002A021A006')
-    .then((data)=> {
-        console.log(data);
-    });
+// crawl('http://www.divedice.com/web_dev/bbs/bbs_list_type01.php?type=f&c_type=1&pagenum=1&cateid=A002A021A006')
+//     .then((data)=> {
+//         console.log(data);
+//     });
