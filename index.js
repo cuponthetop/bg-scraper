@@ -1,10 +1,36 @@
-var route = require('./lib/routes/route');
+let route = require('./lib/routes/route');
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+let express = require('express');
+let bodyParser = require('body-parser');
+let methodOverride = require('method-override');
+let es = require('elasticsearch');
 
-var app = express();
+let UserManager = require('./lib/managers/user');
+let GameManager = require('./lib/managers/game');
+let UserController = require('./lib/controllers/user');
+let GameController = require('./lib/controllers/game');
+let CrawlerController = require('./lib/controllers/crawler');
+
+let esHost = '';
+
+let client = es.Client({
+  host: esHost,
+  log: 'trace'
+});
+
+// instantiate models, controllers
+let managers = {
+  user: new UserManager(client),
+  game: new GameManager(client),
+};
+
+let controllers = {
+  user: new UserController(managers),
+  game: new GameController(managers),
+  crawler: new CrawlerController(),
+}
+
+let app = express();
 
 app.use(methodOverride('X-HTTP-Method-Override'));
 
@@ -14,12 +40,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-
-route(app);
+route(app, controllers);
 
 app.listen(3000);
-
-// crawl('http://www.divedice.com/web_dev/bbs/bbs_list_type01.php?type=f&c_type=1&pagenum=1&cateid=A002A021A006')
-//     .then((data)=> {
-//         console.log(data);
-//     });
