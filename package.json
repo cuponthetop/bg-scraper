@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/cuponthetop/bg-scraper#readme",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "body-parser": "^1.16.1",
     "charset": "^1.0.0",
     "cheerio": "^0.22.0",
@@ -28,6 +29,7 @@
     "jschardet": "^1.4.1",
     "lodash": "^4.17.4",
     "method-override": "^2.3.7",
+    "node-cache": "^4.1.1",
     "node-schedule": "^1.2.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
