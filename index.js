@@ -1,4 +1,4 @@
-var route = require('./lib/route');
+var route = require('./lib/routes/route');
 
 var express = require('express');
 var bodyParser = require('body-parser');
