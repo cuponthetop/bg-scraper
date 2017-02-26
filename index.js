@@ -2,6 +2,7 @@ let route = require('./lib/routes/route');
 
 let express = require('express');
 let bodyParser = require('body-parser');
+let validator = require('express-validator');
 let methodOverride = require('method-override');
 let es = require('elasticsearch');
 
@@ -32,6 +33,17 @@ let controllers = {
   crawler: new CrawlerController(managers),
 }
 
+let validatorOpts = {
+  customValidators: {
+    isArray: function (value) {
+      return Array.isArray(value);
+    },
+    gte: function (param, num) {
+      return param >= num;
+    }
+  }
+};
+
 let app = express();
 
 app.use(methodOverride('X-HTTP-Method-Override'));
@@ -41,6 +53,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+app.use(validator(validatorOpts));
 
 route(app, controllers);
 
