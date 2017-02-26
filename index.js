@@ -7,6 +7,7 @@ let es = require('elasticsearch');
 
 let UserManager = require('./lib/managers/user');
 let GameManager = require('./lib/managers/game');
+let PostManager = require('./lib/managers/post');
 let UserController = require('./lib/controllers/user');
 let GameController = require('./lib/controllers/game');
 let CrawlerController = require('./lib/controllers/crawler');
@@ -22,12 +23,13 @@ let client = es.Client({
 let managers = {
   user: new UserManager(client),
   game: new GameManager(client),
+  post: new PostManager(client),
 };
 
 let controllers = {
   user: new UserController(managers),
   game: new GameController(managers),
-  crawler: new CrawlerController(),
+  crawler: new CrawlerController(managers),
 }
 
 let app = express();
