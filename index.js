@@ -32,7 +32,7 @@ let controllers = {
   user: new UserController(managers),
   game: new GameController(managers),
   crawler: new CrawlerController(managers),
-}
+};
 
 let validatorOpts = {
   customValidators: {
