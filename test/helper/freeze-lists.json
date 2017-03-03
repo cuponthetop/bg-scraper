@@ -178,5 +178,10 @@
     "type": "popcornedu",
     "case": "search-none",
     "url": "http://www.popcone.co.kr/shop/goods/goods_search.php?disp_type=gallery&hid_sword=&searched=Y&log=1&sort=%60soldout%60+ASC%2C+%60soldout%60+ASC%2C+a.sort&page_num=20&skey=all&sword=7lalalal&x=0&y=0&cate%5B%5D=&cate%5B%5D=&cate%5B%5D=&cate%5B%5D=&price%5B%5D=&price%5B%5D=&cmode=&goodsno%5B34557%5D=34557&opt%5B34557%5D%5B%5D=&goodsno%5B50616%5D=50616&opt%5B50616%5D%5B%5D=&goodsno%5B39394%5D=39394&opt%5B39394%5D%5B%5D=&goodsno%5B47959%5D=47959&opt%5B47959%5D%5B%5D=&goodsno%5B34955%5D=34955&opt%5B34955%5D%5B%5D=&goodsno%5B34843%5D=34843&opt%5B34843%5D%5B%5D=&goodsno%5B33994%5D=33994&opt%5B33994%5D%5B%5D=&goodsno%5B3513%5D=3513&opt%5B3513%5D%5B%5D=&goodsno%5B23604%5D=23604&opt%5B23604%5D%5B%5D=&goodsno%5B22815%5D=22815&opt%5B22815%5D%5B%5D=&goodsno%5B1949%5D=1949&opt%5B1949%5D%5B%5D=&goodsno%5B14758%5D=14758&opt%5B14758%5D%5B%5D=&goodsno%5B11519%5D=11519&opt%5B11519%5D%5B%5D=&goodsno%5B9431%5D=9431&opt%5B9431%5D%5B%5D=&goodsno%5B9435%5D=9435&opt%5B9435%5D%5B%5D=&goodsno%5B11280%5D=11280&opt%5B11280%5D%5B%5D=&goodsno%5B7917%5D=7917&opt%5B7917%5D%5B%5D=&goodsno%5B3457%5D=3457&opt%5B3457%5D%5B%5D=&goodsno%5B28902%5D=28902&opt%5B28902%5D%5B%5D=&goodsno%5B741%5D=741&opt%5B741%5D%5B%5D="
+  },
+  {
+    "type": "currency",
+    "case": "test",
+    "url": "http://info.finance.naver.com/marketindex/exchangeDetail.nhn?marketindexCd=FX_USDKRW"
   }
 ]
