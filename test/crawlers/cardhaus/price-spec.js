@@ -21,7 +21,7 @@ describe('# CardHaus', () => {
       let info = targeter('cardhaus', 'price-plain');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'CardHaus',
         priceInWon: '109000',
         originalPrice: '109000',
@@ -33,7 +33,7 @@ describe('# CardHaus', () => {
       let info = targeter('cardhaus', 'price-dc');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'CardHaus',
         priceInWon: '25200',
         originalPrice: '25200',
@@ -48,7 +48,7 @@ describe('# CardHaus', () => {
       let info = targeter('cardhaus', 'na');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'CardHaus',
         priceInWon: '0',
         originalPrice: '0',
