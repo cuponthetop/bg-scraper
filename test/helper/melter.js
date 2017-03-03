@@ -1,14 +1,16 @@
-var fs = require('fs');
-var nock = require('nock');
+let fs = require('fs');
+let nock = require('nock');
+let path = require('path');
 
 /**
  * read file and serve via http mock
- * @param url {string} url to hook
- * @param filename {string} filename of target http to serve with
+ * @param pageInfo {type, case, url}
  * @returns nock nock object created
  */
-module.exports = function (url, filename) {
-  let ret = nock(url).get().reply('/').replyWithFile(200, __dirname + filename);
+module.exports = function (pageInfo) {
+  let filepath = path.resolve(__dirname, '../data/', pageInfo.type, pageInfo.case);
+  let headers = JSON.parse(fs.readFileSync(filepath + '-header'));
+  let ret = nock(url).get().reply('/').replyWithFile(200, filepath, headers);
   return ret;
 };
 

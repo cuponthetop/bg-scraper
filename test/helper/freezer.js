@@ -17,7 +17,8 @@ module.exports = function (url, filename) {
   return new Promise((resolve, reject) => {
     rq(opts)
       .then((res) => {
-        fs.writeFileSync(filename, res);
+        fs.writeFileSync(filename, res.body);
+        fs.writeFileSync(filename + '-header', JSON.stringify(res.headers));
       })
       .catch(reject);
   });
