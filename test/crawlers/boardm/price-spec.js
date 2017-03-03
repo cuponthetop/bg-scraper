@@ -3,42 +3,40 @@ let melter = require('../../helper/melter');
 let targeter = require('../../helper/melt-targeter');
 let BoardM = require('../../../lib/crawlers/boardm');
 let _ = require('lodash');
+let nock = require('nock');
 
 describe('# BoardM', () => {
-  let nock = null;
   let crawler = null
 
   before(() => {
     crawler = new BoardM();
   });
 
-  beforeEach(() => {
-    if (false === _.isNull(nock)) {
-      nock.clear();
-    }
+  afterEach(() => {
+    nock.cleanAll();
   });
 
   describe('## Price Extract', () => {
     it('should properly dig out price in plain prices', () => {
       let info = targeter('boardm', 'price-plain');
-      nock = melter(info);
+      let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.equal({
+      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
         type: 'BoardM',
-        priceInWon: '109,000',
-        originalPrice: '109,000',
+        priceInWon: '109000',
+        originalPrice: '109000',
         stock: true
       });
     });
 
     it('should properly dig out price in discounted prices', () => {
       let info = targeter('boardm', 'price-dc');
-      nock = melter(info);
+      let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.equal({
+      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
         type: 'BoardM',
-        priceInWon: '25,200',
-        originalPrice: '25,200',
+        priceInWon: '25200',
+        originalPrice: '25200',
         stock: true
       });
 
@@ -48,9 +46,9 @@ describe('# BoardM', () => {
   describe('## Stock Extract', () => {
     it('should properly check if and let me know an item is non-available', () => {
       let info = targeter('boardm', 'na');
-      nock = melter(info);
+      let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url).should.eventually.equal({
+      return crawler.getPriceInWon(info.url).should.eventually.deep.equal({
         type: 'BoardM',
         priceInWon: '0',
         originalPrice: '0',
