@@ -1,6 +1,7 @@
 let fs = require('fs');
 let nock = require('nock');
 let path = require('path');
+let url = require('url');
 
 /**
  * read file and serve via http mock
@@ -10,7 +11,8 @@ let path = require('path');
 module.exports = function (pageInfo) {
   let filepath = path.resolve(__dirname, '../data/', pageInfo.type, pageInfo.case);
   let headers = JSON.parse(fs.readFileSync(filepath + '-header'));
-  let ret = nock(url).get().reply('/').replyWithFile(200, filepath, headers);
+  let urlparsed = url.parse(pageInfo.url, false, true);
+  let ret = nock(urlparsed.host).get(urlparsed.path).replyWithFile(200, filepath, headers);
   return ret;
 };
 

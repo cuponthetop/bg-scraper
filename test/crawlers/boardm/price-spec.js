@@ -1,7 +1,8 @@
-let chai = require('../helper/chai-setup');
-let melter = require('../helper/melter');
-let targeter = require('../helper/melt-targeter');
-let BoardM = require('../../lib/crawlers/boardm');
+let chai = require('../../helper/chai-setup');
+let melter = require('../../helper/melter');
+let targeter = require('../../helper/melt-targeter');
+let BoardM = require('../../../lib/crawlers/boardm');
+let _ = require('lodash');
 
 describe('# BoardM', () => {
   let nock = null;
@@ -36,8 +37,8 @@ describe('# BoardM', () => {
 
       return crawler.getPriceInWon(info.url).should.eventually.equal({
         type: 'BoardM',
-        priceInWon: '109,000',
-        originalPrice: '109,000',
+        priceInWon: '25,200',
+        originalPrice: '25,200',
         stock: true
       });
 
@@ -46,6 +47,15 @@ describe('# BoardM', () => {
 
   describe('## Stock Extract', () => {
     it('should properly check if and let me know an item is non-available', () => {
+      let info = targeter('boardm', 'na');
+      nock = melter(info);
+
+      return crawler.getPriceInWon(info.url).should.eventually.equal({
+        type: 'BoardM',
+        priceInWon: '0',
+        originalPrice: '0',
+        stock: false
+      });
 
     });
   });
