@@ -25,7 +25,7 @@ describe('# CoolStuffInc', () => {
         type: 'CoolStuffInc',
         priceInWon: '9990',
         originalPrice: '9.99',
-        stock: true
+        stock: 20
       });
     });
 
@@ -37,7 +37,7 @@ describe('# CoolStuffInc', () => {
         type: 'CoolStuffInc',
         priceInWon: '19990',
         originalPrice: '19.99',
-        stock: true
+        stock: 20
       });
 
     });
@@ -50,9 +50,9 @@ describe('# CoolStuffInc', () => {
 
       return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CoolStuffInc',
-        priceInWon: '0',
-        originalPrice: '0',
-        stock: false
+        priceInWon: '8490',
+        originalPrice: '8.49',
+        stock: 0
       });
 
     });
