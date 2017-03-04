@@ -17,24 +17,15 @@ describe('# CardHaus', () => {
   });
 
   describe('## Price Extract', () => {
+    // cardhaus does not seem to have plain price
     // it('should properly dig out price in plain prices', () => {
-    //   let info = targeter('cardhaus', 'price-plain');
-    //   let melt = melter(info);
-
-    //   return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
-    //     type: 'CardHaus',
-    //     priceInWon: '109000',
-    //     originalPrice: '109000',
-    //     stock: true
-    //   });
-    // });
 
     it('should properly dig out price in discounted prices', () => {
       let info = targeter('cardhaus', 'price-dc');
       let melt = melter(info);
 
       return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
-        type: 'CardHaus',
+        type: 'Cardhaus',
         priceInWon: '44990',
         originalPrice: '44.99',
         stock: 4
@@ -49,10 +40,10 @@ describe('# CardHaus', () => {
       let melt = melter(info);
 
       return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
-        type: 'CardHaus',
+        type: 'Cardhaus',
         priceInWon: '0',
         originalPrice: '0',
-        stock: false
+        stock: 0
       });
 
     });
