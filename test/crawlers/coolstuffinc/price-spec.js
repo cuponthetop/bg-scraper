@@ -21,10 +21,10 @@ describe('# CoolStuffInc', () => {
       let info = targeter('coolstuffinc', 'price-plain');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CoolStuffInc',
-        priceInWon: '109000',
-        originalPrice: '109000',
+        priceInWon: '9990',
+        originalPrice: '9.99',
         stock: true
       });
     });
@@ -33,10 +33,10 @@ describe('# CoolStuffInc', () => {
       let info = targeter('coolstuffinc', 'price-dc');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CoolStuffInc',
-        priceInWon: '25200',
-        originalPrice: '25200',
+        priceInWon: '19990',
+        originalPrice: '19.99',
         stock: true
       });
 
@@ -48,7 +48,7 @@ describe('# CoolStuffInc', () => {
       let info = targeter('coolstuffinc', 'na');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CoolStuffInc',
         priceInWon: '0',
         originalPrice: '0',

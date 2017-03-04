@@ -17,27 +17,27 @@ describe('# CardHaus', () => {
   });
 
   describe('## Price Extract', () => {
-    it('should properly dig out price in plain prices', () => {
-      let info = targeter('cardhaus', 'price-plain');
-      let melt = melter(info);
+    // it('should properly dig out price in plain prices', () => {
+    //   let info = targeter('cardhaus', 'price-plain');
+    //   let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
-        type: 'CardHaus',
-        priceInWon: '109000',
-        originalPrice: '109000',
-        stock: true
-      });
-    });
+    //   return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
+    //     type: 'CardHaus',
+    //     priceInWon: '109000',
+    //     originalPrice: '109000',
+    //     stock: true
+    //   });
+    // });
 
     it('should properly dig out price in discounted prices', () => {
       let info = targeter('cardhaus', 'price-dc');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CardHaus',
-        priceInWon: '25200',
-        originalPrice: '25200',
-        stock: true
+        priceInWon: '44990',
+        originalPrice: '44.99',
+        stock: 4
       });
 
     });
@@ -48,7 +48,7 @@ describe('# CardHaus', () => {
       let info = targeter('cardhaus', 'na');
       let melt = melter(info);
 
-      return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
+      return crawler.getPriceInWon(info.url, 1000).should.eventually.deep.equal({
         type: 'CardHaus',
         priceInWon: '0',
         originalPrice: '0',

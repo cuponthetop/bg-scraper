@@ -23,9 +23,9 @@ describe('# BoardPia', () => {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'BoardPia',
-        priceInWon: '109000',
-        originalPrice: '109000',
-        stock: true
+        priceInWon: '58000',
+        originalPrice: '58000',
+        stock: 12
       });
     });
 
@@ -35,9 +35,9 @@ describe('# BoardPia', () => {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'BoardPia',
-        priceInWon: '25200',
-        originalPrice: '25200',
-        stock: true
+        priceInWon: '55800',
+        originalPrice: '55800',
+        stock: 2873
       });
 
     });
@@ -52,7 +52,7 @@ describe('# BoardPia', () => {
         type: 'BoardPia',
         priceInWon: '0',
         originalPrice: '0',
-        stock: false
+        stock: 0
       });
 
     });

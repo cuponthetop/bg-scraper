@@ -23,8 +23,8 @@ describe('# CardCastle', () => {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'CardCastle',
-        priceInWon: '109000',
-        originalPrice: '109000',
+        priceInWon: '28000',
+        originalPrice: '28000',
         stock: true
       });
     });
@@ -35,9 +35,9 @@ describe('# CardCastle', () => {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'CardCastle',
-        priceInWon: '25200',
-        originalPrice: '25200',
-        stock: true
+        priceInWon: '21000',
+        originalPrice: '21000',
+        stock: 2
       });
 
     });
