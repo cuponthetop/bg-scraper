@@ -50,8 +50,8 @@ describe('# DiveDice', () => {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'DiveDice',
-        priceInWon: '0',
-        originalPrice: '0',
+        priceInWon: '53100',
+        originalPrice: '53100',
         stock: false
       });
 
