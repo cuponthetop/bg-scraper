@@ -1,6 +1,7 @@
 let route = require('./lib/routes/route');
 
 let express = require('express');
+let cors = require('cors');
 let bodyParser = require('body-parser');
 let validator = require('express-validator');
 let methodOverride = require('method-override');
@@ -47,6 +48,8 @@ let validatorOpts = {
 
 let app = express();
 
+app.use(cors());
+
 app.use(morgan('combined'));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
@@ -59,4 +62,4 @@ app.use(validator(validatorOpts));
 
 route(app, controllers);
 
-app.listen(3000);
+app.listen(3003);
