@@ -5,19 +5,19 @@ let DiveDice = require('../../../lib/crawlers/divedice');
 let _ = require('lodash');
 let nock = require('nock');
 
-describe('# DiveDice', () => {
+describe('# DiveDice', function () {
   let crawler = null
 
-  before(() => {
+  before(function () {
     crawler = new DiveDice();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     nock.cleanAll();
   });
 
-  describe('## Price Extract', () => {
-    // it('should properly dig out price in plain prices', () => {
+  describe('## Price Extract', function () {
+    // it('should properly dig out price in plain prices', function () {
     //   let info = targeter('divedice', 'price-plain');
     //   let melt = melter(info);
 
@@ -29,7 +29,7 @@ describe('# DiveDice', () => {
     //   });
     // });
 
-    it('should properly dig out price in discounted prices', () => {
+    it('should properly dig out price in discounted prices', function () {
       let info = targeter('divedice', 'price-dc');
       let melt = melter(info);
 
@@ -43,8 +43,8 @@ describe('# DiveDice', () => {
     });
   });
 
-  describe('## Stock Extract', () => {
-    it('should properly check if and let me know an item is non-available', () => {
+  describe('## Stock Extract', function () {
+    it('should properly check if and let me know an item is non-available', function () {
       let info = targeter('divedice', 'na');
       let melt = melter(info);
 

@@ -5,19 +5,19 @@ let BoardM = require('../../../lib/crawlers/boardm');
 let _ = require('lodash');
 let nock = require('nock');
 
-describe('# BoardM', () => {
+describe('# BoardM', function () {
   let crawler = null
 
-  before(() => {
+  before(function () {
     crawler = new BoardM();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     nock.cleanAll();
   });
 
-  describe('## Price Extract', () => {
-    it('should properly dig out price in plain prices', () => {
+  describe('## Price Extract', function () {
+    it('should properly dig out price in plain prices', function () {
       let info = targeter('boardm', 'price-plain');
       let melt = melter(info);
 
@@ -29,7 +29,7 @@ describe('# BoardM', () => {
       });
     });
 
-    it('should properly dig out price in discounted prices', () => {
+    it('should properly dig out price in discounted prices', function () {
       let info = targeter('boardm', 'price-dc');
       let melt = melter(info);
 
@@ -43,8 +43,8 @@ describe('# BoardM', () => {
     });
   });
 
-  describe('## Stock Extract', () => {
-    it('should properly check if and let me know an item is non-available', () => {
+  describe('## Stock Extract', function () {
+    it('should properly check if and let me know an item is non-available', function () {
       let info = targeter('boardm', 'na');
       let melt = melter(info);
 

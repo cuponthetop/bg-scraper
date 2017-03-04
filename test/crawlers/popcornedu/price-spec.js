@@ -5,19 +5,19 @@ let PopcornEdu = require('../../../lib/crawlers/popcornedu');
 let _ = require('lodash');
 let nock = require('nock');
 
-describe('# PopcornEdu', () => {
+describe('# PopcornEdu', function () {
   let crawler = null
 
-  before(() => {
+  before(function () {
     crawler = new PopcornEdu();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     nock.cleanAll();
   });
 
-  describe('## Price Extract', () => {
-    // it('should properly dig out price in plain prices', () => {
+  describe('## Price Extract', function () {
+    // it('should properly dig out price in plain prices', function () {
     //   let info = targeter('popcornedu', 'price-plain');
     //   let melt = melter(info);
 
@@ -29,7 +29,7 @@ describe('# PopcornEdu', () => {
     //   });
     // });
 
-    it('should properly dig out price in discounted prices', () => {
+    it('should properly dig out price in discounted prices', function () {
       let info = targeter('popcornedu', 'price-dc');
       let melt = melter(info);
 
@@ -43,8 +43,8 @@ describe('# PopcornEdu', () => {
     });
   });
 
-  describe('## Stock Extract', () => {
-    it('should properly check if and let me know an item is non-available', () => {
+  describe('## Stock Extract', function () {
+    it('should properly check if and let me know an item is non-available', function () {
       let info = targeter('popcornedu', 'na');
       let melt = melter(info);
 

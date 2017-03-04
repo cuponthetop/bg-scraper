@@ -5,22 +5,22 @@ let CardHaus = require('../../../lib/crawlers/cardhaus');
 let _ = require('lodash');
 let nock = require('nock');
 
-describe('# CardHaus', () => {
+describe('# CardHaus', function () {
   let crawler = null
 
-  before(() => {
+  before(function () {
     crawler = new CardHaus();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     nock.cleanAll();
   });
 
-  describe('## Price Extract', () => {
+  describe('## Price Extract', function () {
     // cardhaus does not seem to have plain price
-    // it('should properly dig out price in plain prices', () => {
+    // it('should properly dig out price in plain prices', function () {
 
-    it('should properly dig out price in discounted prices', () => {
+    it('should properly dig out price in discounted prices', function () {
       let info = targeter('cardhaus', 'price-dc');
       let melt = melter(info);
 
@@ -34,8 +34,8 @@ describe('# CardHaus', () => {
     });
   });
 
-  describe('## Stock Extract', () => {
-    it('should properly check if and let me know an item is non-available', () => {
+  describe('## Stock Extract', function () {
+    it('should properly check if and let me know an item is non-available', function () {
       let info = targeter('cardhaus', 'na');
       let melt = melter(info);
 

@@ -5,19 +5,19 @@ let CoolStuffInc = require('../../../lib/crawlers/coolstuffinc');
 let _ = require('lodash');
 let nock = require('nock');
 
-describe('# CoolStuffInc', () => {
+describe('# CoolStuffInc', function () {
   let crawler = null
 
-  before(() => {
+  before(function () {
     crawler = new CoolStuffInc();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     nock.cleanAll();
   });
 
-  describe('## Price Extract', () => {
-    it('should properly dig out price in plain prices', () => {
+  describe('## Price Extract', function () {
+    it('should properly dig out price in plain prices', function () {
       let info = targeter('coolstuffinc', 'price-plain');
       let melt = melter(info);
 
@@ -29,7 +29,7 @@ describe('# CoolStuffInc', () => {
       });
     });
 
-    it('should properly dig out price in discounted prices', () => {
+    it('should properly dig out price in discounted prices', function () {
       let info = targeter('coolstuffinc', 'price-dc');
       let melt = melter(info);
 
@@ -43,8 +43,8 @@ describe('# CoolStuffInc', () => {
     });
   });
 
-  describe('## Stock Extract', () => {
-    it('should properly check if and let me know an item is non-available', () => {
+  describe('## Stock Extract', function () {
+    it('should properly check if and let me know an item is non-available', function () {
       let info = targeter('coolstuffinc', 'na');
       let melt = melter(info);
 
