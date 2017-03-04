@@ -50,8 +50,8 @@ describe('# PopcornEdu', function () {
 
       return crawler.getPriceInWon(info.url, 1).should.eventually.deep.equal({
         type: 'PopcornEdu',
-        priceInWon: '0',
-        originalPrice: '0',
+        priceInWon: '19800',
+        originalPrice: '19800',
         stock: false
       });
 
