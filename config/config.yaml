@@ -1,0 +1,3 @@
+controller:
+  elasticsearch_address: ''
+cors:

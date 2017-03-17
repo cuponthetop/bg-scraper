@@ -5,35 +5,7 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 let validator = require('express-validator');
 let methodOverride = require('method-override');
-let es = require('elasticsearch');
 let morgan = require('morgan');
-
-let UserManager = require('./lib/managers/user');
-let GameManager = require('./lib/managers/game');
-let PostManager = require('./lib/managers/post');
-let UserController = require('./lib/controllers/user');
-let GameController = require('./lib/controllers/game');
-let CrawlerController = require('./lib/controllers/crawler');
-
-let esHost = 'search-cup-es-6etdi2c6h54rls4ktxarhemqt4.ap-northeast-2.es.amazonaws.com';
-
-let client = es.Client({
-  host: esHost,
-  log: 'trace'
-});
-
-// instantiate models, controllers
-let managers = {
-  user: new UserManager(client),
-  game: new GameManager(client),
-  post: new PostManager(client),
-};
-
-let controllers = {
-  user: new UserController(managers),
-  game: new GameController(managers),
-  crawler: new CrawlerController(managers),
-};
 
 let validatorOpts = {
   customValidators: {
@@ -46,20 +18,24 @@ let validatorOpts = {
   }
 };
 
+let config = require('./lib/util/read-config');
+let createController = require('./lib/util/create-controllers');
+
 let app = express();
 
-app.use(cors());
+app.use(cors(config.cors));
 
 app.use(morgan('combined'));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 // parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse application/json
 app.use(bodyParser.json());
 app.use(validator(validatorOpts));
 
+let controllers = createController(config.controller);
 route(app, controllers);
 
 app.listen(3003);
