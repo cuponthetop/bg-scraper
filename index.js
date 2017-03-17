@@ -7,6 +7,8 @@ let validator = require('express-validator');
 let methodOverride = require('method-override');
 let morgan = require('morgan');
 
+let crawlerValidator = require('./lib/validator/crawler');
+
 let validatorOpts = {
   customValidators: {
     isArray: function (value) {
@@ -14,7 +16,8 @@ let validatorOpts = {
     },
     gte: function (param, num) {
       return param >= num;
-    }
+    },
+    isCrawler: crawlerValidator
   }
 };
 
