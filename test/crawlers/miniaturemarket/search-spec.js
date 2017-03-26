@@ -32,7 +32,7 @@ describe('# MiniatureMarket', function () {
        * }[]
        */
       let searchRes = crawler.search('arkham');
-      return searchRes.should.eventually.have.lengthOf(32);
+      return searchRes.should.eventually.have.lengthOf(30);
     });
 
     it('should properly dig out price in discounted prices', function () {
