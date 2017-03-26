@@ -31,14 +31,16 @@ describe('# BoardPia', function () {
        *  price: string
        * }[]
        */
-      return crawler.search('five').should.eventually.have.lengthOf(4);
+      let searchRes = crawler.search('five');
+      return searchRes.should.eventually.have.lengthOf(4);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('boardpia', 'search-none');
       let melt = melter(info);
 
-      return crawler.search('fivelalalal').should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('fivelalalal');
+      return searchRes.should.eventually.have.lengthOf(0);
     });
   });
 

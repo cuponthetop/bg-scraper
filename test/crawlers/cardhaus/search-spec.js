@@ -31,14 +31,16 @@ describe('# Cardhaus', function () {
        *  price: string
        * }[]
        */
-      return crawler.search('').should.eventually;
+      let searchRes = crawler.search('arkham+horror');
+      return searchRes.should.eventually.have.lengthOf(25);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('cardhaus', 'search-none');
       let melt = melter(info);
 
-      return crawler.search('').should.eventually;
+      let searchRes = crawler.search('nananana');
+      return searchRes.should.eventually.have.lengthOf(0);
 
     });
   });

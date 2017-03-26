@@ -29,15 +29,16 @@ describe('# BoardM', function () {
        *  score: number
        * }[]
        */
-      return crawler.search('').should.eventually;
+      let searchRes = crawler.search('');
+      searchRes.should.eventually.have.lengthOf(0);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('boardm', 'search-none');
       let melt = melter(info);
 
-      return crawler.search('').should.eventually;
-
+      let searchRes = crawler.search('');
+      searchRes.should.eventually.have.lengthOf(0);
     });
   });
 
