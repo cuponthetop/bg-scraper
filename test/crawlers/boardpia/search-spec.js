@@ -23,20 +23,21 @@ describe('# BoardPia', function () {
 
       /**
        * {
-       *  names : {}[],
+       *  en: string,
+       *  kr: string,
+       *  img: string,
        *  url: string,
-       *  score: number
+       *  price: string
        * }[]
        */
-      return crawler.search('').should.eventually;
+      return crawler.search('five').should.eventually.have.lengthOf(4);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('boardpia', 'search-none');
       let melt = melter(info);
 
-      return crawler.search('').should.eventually;
-
+      return crawler.search('fivelalalal').should.eventually.have.lengthOf(0);
     });
   });
 

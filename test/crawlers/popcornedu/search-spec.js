@@ -23,9 +23,11 @@ describe('# PopcornEdu', function () {
 
       /**
        * {
-       *  names : {}[],
+       *  en: string,
+       *  kr: string,
+       *  img: string,
        *  url: string,
-       *  score: number
+       *  price: string
        * }[]
        */
       return crawler.search('').should.eventually;
