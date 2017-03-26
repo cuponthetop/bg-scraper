@@ -152,7 +152,7 @@
   {
     "type": "cardcastle",
     "case": "search-none",
-    "url": "http://cardcastle.co.kr/product/search.html?view_type=&supplier_code=&category_no=&search_type=product_name&keyword=bangagalala&product_price1=&product_price2=&order_by=&x=0&y=0"
+    "url": "http://cardcastle.co.kr/product/search.html?banner_action=&keyword=bangagalala"
   },
   {
     "type": "cardhaus",
