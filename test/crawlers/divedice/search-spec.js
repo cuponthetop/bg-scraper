@@ -19,8 +19,8 @@ describe('# DiveDice', function () {
 
   describe('## Price Extract', function () {
     it('should properly extract names, scores, urls of several elements in search result', function () {
-      let info = targeter('divedice', 'search-several');
-      let melt = melter(info);
+      // let info = targeter('divedice', 'search-several');
+      // let melt = melter(info);
 
       /**
        * {
@@ -32,12 +32,12 @@ describe('# DiveDice', function () {
        * }[]
        */
       let searchRes = crawler.search('arkham');
-      return searchRes.should.eventually.have.lengthOf(0);
+      return searchRes.should.eventually.have.lengthOf(6);
     });
 
     it('should properly dig out price in discounted prices', function () {
-      let info = targeter('divedice', 'search-none');
-      let melt = melter(info);
+      // let info = targeter('divedice', 'search-none');
+      // let melt = melter(info);
 
       let searchRes = crawler.search('arkhamfsafas');
       return searchRes.should.eventually.have.lengthOf(0);
