@@ -6,9 +6,9 @@ let _ = require('lodash');
 let nock = require('nock');
 
 describe('# MiniatureMarket', function () {
-  this.timeout(5000);
+  this.timeout(10000);
 
-  let crawler = null
+  let crawler = null;
 
   before(function () {
     crawler = new MiniatureMarket();

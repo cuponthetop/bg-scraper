@@ -6,7 +6,8 @@ let _ = require('lodash');
 let nock = require('nock');
 
 describe('# DiveDice', function () {
-  let crawler = null
+  this.timeout(10000);
+  let crawler = null;
 
   before(function () {
     crawler = new DiveDice();

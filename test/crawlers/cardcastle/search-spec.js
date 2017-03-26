@@ -6,7 +6,8 @@ let _ = require('lodash');
 let nock = require('nock');
 
 describe('# CardCastle', function () {
-  let crawler = null
+  this.timeout(10000);
+  let crawler = null;
 
   before(function () {
     crawler = new CardCastle();
@@ -30,15 +31,16 @@ describe('# CardCastle', function () {
        *  price: string
        * }[]
        */
-      return crawler.search('').should.eventually;
+      let searchRes = crawler.search('bang');
+      return searchRes.should.eventually.have.lengthOf(9);
     });
 
-    it('should properly dig out price in discounted prices', function () {
+    it('should properly extract list of none found', function () {
       let info = targeter('cardcastle', 'search-none');
       let melt = melter(info);
 
-      return crawler.search('').should.eventually;
-
+      let searchRes = crawler.search('bangagalala');
+      return searchRes.should.eventually.have.lengthOf(0);
     });
   });
 

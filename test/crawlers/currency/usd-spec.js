@@ -6,7 +6,8 @@ let _ = require('lodash');
 let nock = require('nock');
 
 describe('# Currency', () => {
-  let crawler = null
+  this.timeout(10000);
+  let crawler = null;
 
   before(() => {
     crawler = new Currency();
