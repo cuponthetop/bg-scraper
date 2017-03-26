@@ -31,16 +31,16 @@ describe('# DiveDice', function () {
        *  price: string
        * }[]
        */
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('arkham');
+      return searchRes.should.eventually.have.lengthOf(0);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('divedice', 'search-none');
       let melt = melter(info);
 
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('arkhamfsafas');
+      return searchRes.should.eventually.have.lengthOf(0);
 
     });
   });
