@@ -31,17 +31,16 @@ describe('# PopcornEdu', function () {
        *  price: string
        * }[]
        */
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('dice');
+      return searchRes.should.eventually.have.lengthOf(20);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('popcornedu', 'search-none');
       let melt = melter(info);
 
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
-
+      let searchRes = crawler.search('7lalalal');
+      return searchRes.should.eventually.have.lengthOf(0);
     });
   });
 
