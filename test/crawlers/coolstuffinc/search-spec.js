@@ -31,16 +31,16 @@ describe('# CoolStuffInc', function () {
        *  price: string
        * }[]
        */
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('arkham+horror');
+      return searchRes.should.eventually.have.lengthOf(50);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('coolstuffinc', 'search-none');
       let melt = melter(info);
 
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('ananananannanan');
+      return searchRes.should.eventually.have.lengthOf(0);
 
     });
   });

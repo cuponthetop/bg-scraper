@@ -122,7 +122,7 @@
   {
     "type": "coolstuffinc",
     "case": "search-several",
-    "url": "http://www.coolstuffinc.com/main_search.php?pa=searchOnName&page=1&resultsPerPage=25&q=arkham+horror"
+    "url": "http://www.coolstuffinc.com/main_search.php?pa=searchOnName&page=1&resultsPerPage=50&q=arkham+horror"
   },
   {
     "type": "divedice",
@@ -162,7 +162,7 @@
   {
     "type": "coolstuffinc",
     "case": "search-none",
-    "url": "http://www.coolstuffinc.com/main_search.php?pa=searchOnName&page=1&resultsPerPage=25&q=ananananannanan"
+    "url": "http://www.coolstuffinc.com/main_search.php?pa=searchOnName&page=1&resultsPerPage=50&q=ananananannanan"
   },
   {
     "type": "divedice",
