@@ -31,16 +31,16 @@ describe('# MiniatureMarket', function () {
        *  price: string
        * }[]
        */
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('arkham');
+      return searchRes.should.eventually.have.lengthOf(32);
     });
 
     it('should properly dig out price in discounted prices', function () {
       let info = targeter('miniaturemarket', 'search-none');
       let melt = melter(info);
 
-      let searchRes = crawler.search('');
-      searchRes.should.eventually.have.lengthOf(0);
+      let searchRes = crawler.search('lalalalfnenen');
+      return searchRes.should.eventually.have.lengthOf(0);
 
     });
   });

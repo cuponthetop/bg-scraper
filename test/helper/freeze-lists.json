@@ -132,7 +132,7 @@
   {
     "type": "miniaturemarket",
     "case": "search-several",
-    "url": "http://www.miniaturemarket.com/searchresults?q=arkham"
+    "url": "http://api.searchspring.net/api/search/search.json?method=search&q=arkham&format=json&websiteKey=6f9c319d45519a85863e68be9c3f5d81"
   },
   {
     "type": "popcornedu",
@@ -172,7 +172,7 @@
   {
     "type": "miniaturemarket",
     "case": "search-none",
-    "url": "http://www.miniaturemarket.com/searchresults?q=lalalalfnenen"
+    "url": "http://api.searchspring.net/api/search/search.json?method=search&q=lalalalfnenen&format=json&websiteKey=6f9c319d45519a85863e68be9c3f5d81"
   },
   {
     "type": "popcornedu",

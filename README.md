@@ -12,3 +12,4 @@ Add new test pages to freeze test/helper/freeze-lists.json
 Support multiple pages of search result
 implement more search handler
 Restructure in functional style (or use RxJS)
+Implement utility functions for cheerio objects
